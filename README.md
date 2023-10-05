@@ -1,24 +1,5 @@
-# README
+# Recipe Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is for ADEV-3008 Full Stack Programming course and uses assets retrieved from both internal and external properties.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Using Ruby on Rails we are creating a website that showcases recipes.
