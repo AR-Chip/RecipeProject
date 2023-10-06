@@ -1,15 +1,47 @@
-/*
- * This is a manifest file that'll be compiled into application.css, which will include all the files
- * listed below.
- *
- * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
- * vendor/assets/stylesheets directory can be referenced here using a relative path.
- *
- * You're free to add application-wide styles to this file and they'll appear at the bottom of the
- * compiled file so the styles you add here take precedence over styles defined in any other CSS
- * files in this directory. Styles in this file should be added after the last require_* statement.
- * It is generally better to create a new file per style scope.
- *
- *= require_tree .
- *= require_self
- */
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Header styles */
+h1 {
+  text-align: center;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+}
+
+h2 {
+  text-align: center;
+}
+
+/* Grid container styles */
+.recipe-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Create columns with a minimum width of 200px */
+  gap: 20px; /* Gap between grid items */
+  justify-content: center; /* Center the grid items horizontally */
+  padding: 20px;
+
+}
+
+/* Grid item styles */
+.recipe-item {
+  text-align: center;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 20px;
+}
+
+/* Link styles */
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Image styles */
+img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 10px;
+}

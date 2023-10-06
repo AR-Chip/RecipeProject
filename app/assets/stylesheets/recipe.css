@@ -1,0 +1,80 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Container styles */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Recipe title styles */
+h1 {
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+/* Description styles */
+p.description {
+  font-size: 16px;
+}
+
+/* Image styles */
+img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+  height: auto;
+  margin-top: 20px;
+}
+
+/* Category styles */
+p.category-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+ul.categories {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul.categories li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Ingredients styles */
+p.ingredients-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+ul.ingredients {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul.ingredients li {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+/* Instructions styles */
+p.instructions-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+p.instructions {
+  font-size: 16px;
+  text-align: left;
+}
