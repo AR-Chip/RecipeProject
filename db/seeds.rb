@@ -1,7 +1,9 @@
 # Require Statements
+require 'csv'
 require 'net/http'
 require 'json'
 require 'pp'
+require 'faker'
 
 # Clean all DB
 Recipe.destroy_all
@@ -9,16 +11,31 @@ Category.destroy_all
 Ingredient.destroy_all
 
 
-# Open Recipe Dataset
+# Open Recipe Dataset from both FAKER and CSV Dataset
 recipeFile = Rails.root.join('db/AllRecipes Ingredients Fixed.csv')
-puts "Loading Recipes from the CSV file: #{recipeFile}"
+puts "Loading Recipes from the CSV file: #{recipeFile}."
 csv_data = File.read(recipeFile)
 recipes = CSV.parse(csv_data, headers: true, encoding: 'utf-8')
+
+recipes.each do |r|
+  dish = Recipe.create(name: r['Recipe Name'].titleize, instructions: r['instructions'], calories: Faker::Number.between(from: 100, to: 1200), image: r['image'], description: r['descriptor'])
+  dish.category.create(name: "#{r['ethnicity'].titleize}")
+  dish.category.create(name: "#{r['category'].titleize}")
+
+  r['ingredients'].split(',').each do |i|
+    stripped_ingredient = i.strip.titleize
+    dish.ingredient.create(name:stripped_ingredient, count:Faker::Number.between(from: 1, to: 10))
+  end
+end
+
+puts "Loading Recipes from the CSV file: #{recipeFile} is finished."
+
+
 
 # url = 'https://dog.ceo/api/breeds/list/all'
 # uri = URI(url)
 # response = Net::HTTP.get(uri)
-# dog_breeds = JSON.parse(response)
+# dog_breeds = JSON.parse(response)vegetable oil beef flank steak beef broth can tomato sauce can tomato paste green bell pepper
 
 # puts dog_breeds
 
