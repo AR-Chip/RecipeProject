@@ -12,7 +12,7 @@ Ingredient.destroy_all
 
 
 # Open Recipe Dataset from both FAKER and CSV Dataset
-recipeFile = Rails.root.join('db/AllRecipes Ingredients Fixed.csv')
+recipeFile = Rails.root.join('db/AllRecipes Ingredients Images FIXED.csv')
 puts "Loading Recipes from the CSV file: #{recipeFile}."
 csv_data = File.read(recipeFile)
 recipes = CSV.parse(csv_data, headers: true, encoding: 'utf-8')
