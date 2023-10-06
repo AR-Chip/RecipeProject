@@ -21,7 +21,7 @@ recipes.each do |r|
   dish = Recipe.create(name: r['Recipe Name'].titleize, instructions: r['instructions'], calories: Faker::Number.between(from: 100, to: 1200), image: r['image'], description: r['descriptor'])
 
   ethnicity = Category.find_or_create_by(name: "#{r['ethnicity'].titleize}")
-  catageory = Category.find_or_create_by(name: "#{r['category'].titleize}")
+  category = Category.find_or_create_by(name: "#{r['category'].titleize}")
 
   ethnicity.recipe << dish
   category.recipe << dish
