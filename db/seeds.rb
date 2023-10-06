@@ -19,12 +19,17 @@ recipes = CSV.parse(csv_data, headers: true, encoding: 'utf-8')
 
 recipes.each do |r|
   dish = Recipe.create(name: r['Recipe Name'].titleize, instructions: r['instructions'], calories: Faker::Number.between(from: 100, to: 1200), image: r['image'], description: r['descriptor'])
-  dish.category.create(name: "#{r['ethnicity'].titleize}")
-  dish.category.create(name: "#{r['category'].titleize}")
+
+  ethnicity = Category.find_or_create_by(name: "#{r['ethnicity'].titleize}")
+  category = Category.find_or_create_by(name: "#{r['category'].titleize}")
+
+  ethnicity.recipe << dish
+  category.recipe << dish
 
   r['ingredients'].split(',').each do |i|
     stripped_ingredient = i.strip.titleize
-    dish.ingredient.create(name:stripped_ingredient, count:Faker::Number.between(from: 1, to: 10))
+    ingredient = Ingredient.find_or_create_by(name: stripped_ingredient)
+    ingredient.recipe << dish
   end
 end
 
