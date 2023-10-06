@@ -1,10 +1,18 @@
-<h1>Recipe Recipe</h1>
-<h2>All Recipes</h2>
-<ul>
-  <% @recipes.each do |recipe| %>
-    <li>
-      <p>Name:<%= link_to recipe.name, recipe%></p>
-      <img src=<%= recipe.image %> width="200" height="200">
-    </li>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+<body>
+  <h1>Recipe Recipe</h1>
+  <h2>All Recipes</h2>
+  <div class="recipe-grid">
+    <% @recipes.each do |recipe| %>
+      <div class="recipe-item">
+        <p>Name: <%= link_to recipe.name, recipe %></p>
+        <img src="<%= recipe.image %>" width="200" height="200">
+      </div>
+    <% end %>
+  </div>
+</body>
+</html>
