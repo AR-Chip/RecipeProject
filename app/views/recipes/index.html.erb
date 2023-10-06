@@ -3,10 +3,8 @@
 <ul>
   <% @recipes.each do |recipe| %>
     <li>
-      <p><%= recipe.name %></p>
-      <p><%= recipe.instructions %></p>
-      <img src=<%= recipe.image %>>
-      <p><%= recipe.description %></p>
+      <p>Name:<%= link_to recipe.name, recipe%></p>
+      <img src=<%= recipe.image %> width="200" height="200">
     </li>
   <% end %>
 </ul>
