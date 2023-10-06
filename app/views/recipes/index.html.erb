@@ -9,7 +9,7 @@
   <div class="recipe-grid">
     <% @recipes.each do |recipe| %>
       <div class="recipe-item">
-        <p>Name: <%= link_to recipe.name, recipe %></p>
+        <p><%= link_to recipe.name, recipe %></p>
         <img src="<%= recipe.image %>" width="200" height="200">
       </div>
     <% end %>

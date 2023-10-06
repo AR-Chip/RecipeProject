@@ -21,7 +21,7 @@
     <p class="ingredients-title">Ingredients:</p>
     <ul class="ingredients">
       <% @recipe.ingredient.each do |ingredient| %>
-        <li><%= ingredient.count %> <%= ingredient.name %></li>
+        <li><%= ingredient.name %></li>
       <% end %>
     </ul>
 
