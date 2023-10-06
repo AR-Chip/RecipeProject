@@ -1,21 +1,32 @@
-<h1><%= @recipe.name %></h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+  <%= stylesheet_link_tag 'recipe', media: 'all' %> <!-- Add this line to include the recipe.css file -->
+</head>
+<body>
+  <div class="container">
+    <h1><%= @recipe.name %></h1>
 
-<p>Description: <%= @recipe.description %></p>
-<img src=<%= @recipe.image %> width="500" height="500">
+    <p class="description">Description: <%= @recipe.description %></p>
+    <img src="<%= @recipe.image %>" width="500" height="500">
 
-<p>Category:<p>
-<ul>
-  <% @recipe.category.each do |c| %>
-    <p><%= c.name %></p>
-    <p><%= c %></p>
-  <% end %>
-</ul>
+    <p class="category-title">Category:</p>
+    <ul class="categories">
+      <% @recipe.category.each do |c| %>
+        <li><%= c.name %></li>
+      <% end %>
+    </ul>
 
-<p>Ingredients:<p>
-<ul>
-  <% @recipe.ingredient.each do |ingredient| %>
-    <p><%= ingredient.count %> <%= ingredient.name %></p>
-  <% end %>
-</ul>
+    <p class="ingredients-title">Ingredients:</p>
+    <ul class="ingredients">
+      <% @recipe.ingredient.each do |ingredient| %>
+        <li><%= ingredient.count %> <%= ingredient.name %></li>
+      <% end %>
+    </ul>
 
-<p>Instructions: <%= @recipe.instructions%></p>
+    <p class="instructions-title">Instructions:</p>
+    <p class="instructions"><%= @recipe.instructions %></p>
+  </div>
+</body>
+</html>
