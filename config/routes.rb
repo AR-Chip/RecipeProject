@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  get 'recipes/index'
-  get 'recipes/show'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :recipes, only: [:index, :show]
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # Setting Default Page
+  root to: 'recipes#index'
 end
