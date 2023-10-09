@@ -1,9 +1,9 @@
 class RecipesController < ApplicationController
   def index
-    @recipes = Recipe.order(:name)
+    @recipes = Recipe.includes(:category, :ingredient).order(:name)
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.includes(:category, :ingredient, :ingredient_recipe).find(params[:id])
   end
 end
