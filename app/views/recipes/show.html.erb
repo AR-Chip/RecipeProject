@@ -21,8 +21,8 @@
     <p class="ingredients-title">Ingredients:</p>
     <ul class="ingredients">
       <% @recipe.ingredient.each do |ingredient| %>
-        <li><%= ingredient.name %></li>
-      <% end %>
+    <li><%= "#{ingredient.ingredient_recipe.find_by(recipe_id: @recipe.id).count} #{ingredient.name}" %></li>
+  <% end %>
     </ul>
 
     <p class="instructions-title">Instructions:</p>

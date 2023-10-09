@@ -9,6 +9,7 @@ require 'faker'
 Recipe.destroy_all
 Category.destroy_all
 Ingredient.destroy_all
+IngredientRecipe.destroy_all
 
 
 # Open Recipe Dataset from both FAKER and CSV Dataset
@@ -29,7 +30,14 @@ recipes.each do |r|
   r['ingredients'].split(',').each do |i|
     stripped_ingredient = i.strip.titleize
     ingredient = Ingredient.find_or_create_by(name: stripped_ingredient)
-    ingredient.recipe << dish
+    # ingredient_recipe = IngredientRecipe.create(ingredient: ingredient, recipe: dish, count: Faker::Number.between(from: 1, to: 10))
+    # ingredient.recipe << dish
+
+    if ingredient.valid?
+      IngredientRecipe.create(ingredient: ingredient, recipe: dish, count: Faker::Number.between(from: 1, to: 10))
+    else
+      puts "Skipping invalid ingredient: #{stripped_ingredient.inspect}"
+    end
   end
 end
 
