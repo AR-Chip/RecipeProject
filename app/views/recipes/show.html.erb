@@ -14,7 +14,7 @@
     <p class="category-title">Category:</p>
     <ul class="categories">
       <% @recipe.category.each do |c| %>
-        <li><%= c.name %></li>
+        <li><%= link_to c.name, category_path(c) %></li>
       <% end %>
     </ul>
 
