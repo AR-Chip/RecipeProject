@@ -15,4 +15,7 @@ Rails.application.routes.draw do
 
   # Setting Default Page
   root to: 'recipes#index'
+
+  # Redirect to Root if page doesn't exist
+  get '*path', to: 'application#go_to_root'
 end
