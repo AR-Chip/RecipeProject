@@ -1,11 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <%= stylesheet_link_tag 'application', media: 'all' %>
-</head>
-<body>
-  <h2>All Recipes</h2>
-  <div class="recipe-grid">
+<h3>Your query of "<%= @query %>" has returned <%= pluralize(@recipes.count, 'results') %>.</h3>
+
+<div class="recipe-grid">
     <% @recipes.each do |recipe| %>
       <div class="recipe-item">
         <p><%= link_to recipe.name, recipe %></p>
@@ -13,5 +8,3 @@
       </div>
     <% end %>
   </div>
-</body>
-</html>
