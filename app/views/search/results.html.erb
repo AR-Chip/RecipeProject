@@ -1,4 +1,14 @@
-<h3>Your query of "<%= @query %>" has returned <%= pluralize(@recipes.count, 'results') %>.</h3>
+<h3>
+  <% if @query.present? && @category.present? %>
+      Your query of "<%= @query %>" and category "<%= @category.name %>" have returned <%= pluralize(@recipes.count, 'result') %>.
+    <% elsif @query.present? %>
+      Your query of "<%= @query %>" has returned <%= pluralize(@recipes.count, 'result') %>.
+    <% elsif @category.present? %>
+      Recipes in category "<%= @category.name %>" have been returned.
+    <% else %>
+      No search criteria provided. Showing all recipes.
+    <% end %>
+</h3>
 
 <div class="recipe-grid">
   <%= render @recipes %>
