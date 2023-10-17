@@ -6,7 +6,7 @@ body {
 /* Header styles */
 h1 {
   text-align: center;
-  background-color: #333;
+  background-color: #e0098600;
   color: #fff;
   padding: 20px;
 }
@@ -36,7 +36,7 @@ h2 {
 /* Link styles */
 a {
   text-decoration: none;
-  color: #333;
+  color: #333333;
 }
 
 /* Image styles */
@@ -44,4 +44,13 @@ img {
   display: block;
   margin: 0 auto;
   border-radius: 10px;
+}
+
+.center-bold {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  text-align: center;
+  height: 100%;
 }

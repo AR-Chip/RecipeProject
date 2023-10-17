@@ -5,33 +5,45 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-    <header>
-      <h1>Recipe Recipe</h1>
-      <nav>
-        <ul>
-          <li><%= link_to "Home", root_path %></li>
-          <li><%= link_to "Categories", categories_path %></li>
-          <li><%= link_to "About Us", about_path %></li>
-        </ul>
-      </nav>
+    <header class="bg-primary text-white">
+           <div class="container">
+        <h1 class="mb-4">Recipe Recipe</h1>
+        <nav>
+          <ul class="list-unstyled list-inline center-bold">
+            <li class="list-inline-item"><%= link_to "Home", root_path, class: "text-white" %></li>
+            <li class="list-inline-item"><%= link_to "Categories", categories_path, class: "text-white" %></li>
+            <li class="list-inline-item"><%= link_to "About Us", about_path, class: "text-white" %></li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
-    <div class="searchbar">
-      <%= form_tag(search_results_path, method: "get") do %>
-        <%= label_tag(:q, "Search for:") %>
-        <%= text_field_tag(:q, params[:q]) %>
-        <%= label_tag(:category, "Filter by Category:") %>
-        <%= select_tag(:category, options_for_select(Category.all.collect { |c| [c.name, c.id] }, params[:category]), include_blank: true) %>
-        <%= submit_tag("Search") %>
-      <% end %>
+    <div class="searchbar bg-light p-3">
+      <div class="container">
+        <%= form_tag(search_results_path, method: "get") do %>
+          <div class="form-group mb-3">
+            <%= label_tag(:q, "Search for:", class: "font-weight-bold") %>
+            <%= text_field_tag(:q, params[:q], class: "form-control") %>
+          </div>
+          <div class="form-group mb-3">
+            <%= label_tag(:category, "Filter by Category:", class: "font-weight-bold") %>
+            <%= select_tag(:category, options_for_select(Category.all.collect { |c| [c.name, c.id] }, params[:category]), include_blank: true, class: "form-control") %>
+          </div>
+          <%= submit_tag("Search", class: "btn btn-primary") %>
+        <% end %>
+      </div>
     </div>
+<div class="container">
 
     <%= yield %>
+
+
+</div>
   </body>
 </html>
