@@ -1,4 +1,7 @@
-<div class="recipe-item">
-  <p><%= link_to recipe.name, recipe %></p>
-  <img src="<%= recipe.image %>" width="200" height="200" alt="<%= recipe.name %>">
-</div>
+
+    <div class="col-md-3">
+      <div class="row">
+        <p class="d-flex align-items-center "><%= link_to recipe.name, recipe %></p>
+        <img src="<%= recipe.image %>" width="200" height="200" alt="<%= recipe.name %>">
+      </div>
+    </div>
