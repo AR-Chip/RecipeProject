@@ -24,8 +24,8 @@ recipes.each do |r|
   ethnicity = Category.find_or_create_by(name: "#{r['ethnicity'].titleize}")
   category = Category.find_or_create_by(name: "#{r['category'].titleize}")
 
-  ethnicity.recipe << dish
-  category.recipe << dish
+  ethnicity.recipes << dish
+  category.recipes << dish
 
   r['ingredients'].split(',').each do |i|
     stripped_ingredient = i.strip.titleize
