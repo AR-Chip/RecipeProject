@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html>
-<head>
+
+
+
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= stylesheet_link_tag 'recipe', media: 'all' %> <!-- Add this line to include the recipe.css file -->
-</head>
-<body>
+
+
   <div class="container">
     <h1><%= @recipe.name %></h1>
 
     <p class="description">Description: <%= @recipe.description %></p>
-    <img src="<%= @recipe.image %>" width="500" height="500">
+    <img src="<%= @recipe.image %>" width="500" height="500" alt="<%=@recipe.name%>">
 
     <p class="category-title">Category:</p>
     <ul class="categories">
@@ -28,5 +28,4 @@
     <p class="instructions-title">Instructions:</p>
     <p class="instructions"><%= @recipe.instructions %></p>
   </div>
-</body>
-</html>
+
